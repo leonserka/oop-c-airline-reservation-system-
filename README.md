@@ -1,54 +1,84 @@
-# oop-c-airline-reservation-system-
+# 🛫 Airline Reservation System (C++) – OOP Seminar Project
 
-# ✈️ Airline Reservation System (C++ OOP Project)
-
-## 📖 Opis projekta
-Ovaj projekt predstavlja **Airline Reservation System** izrađen u **C++** pomoću **objektno orijentiranog programiranja (OOP)**.  
-Omogućuje korisnicima da kreiraju domaće ili međunarodne letove, rezerviraju karte, otkažu rezervacije i pregledaju sve postojeće karte.
-
-Projekt pokazuje praktičnu primjenu svih glavnih OOP koncepata:  
-- **Enkapsulacija**
-- **Nasljeđivanje**
-- **Polimorfizam**
-- **Apstrakcija**
-- **Pametni pokazivači (smart pointers)**
-- **Rad s kolekcijama (std::vector, std::unordered_set)**
-- **Validacija podataka pomoću Regex-a**
-- **Modularnost i dinamička alokacija memorije**
+This project is a **console-based airline reservation system** written entirely in **C++** as part of a **university OOP seminar project**.  
+It demonstrates key **Object-Oriented Programming principles** such as **encapsulation**, **inheritance**, **polymorphism**, and **abstraction** — all implemented within a single `.cpp` source file.
 
 ---
 
-## 🧩 Struktura sustava
+## 📚 Overview
+The system allows users to:
+- Add and manage flights  
+- Make and cancel reservations  
+- View passenger and flight details  
+- Store and load data from files  
 
-### **Klase i njihova uloga**
-| Klasa | Uloga | OOP koncept |
-|-------|--------|-------------|
-| `Flight` | Apstraktna osnovna klasa koja predstavlja let. Sadrži zajedničke podatke za sve tipove letova. | **Apstrakcija, enkapsulacija** |
-| `DomesticFlight` | Nasljeđuje `Flight` i predstavlja domaći let. | **Nasljeđivanje** |
-| `InternationalFlight` | Nasljeđuje `Flight` i predstavlja međunarodni let. | **Nasljeđivanje** |
-| `Ticket` | Sadrži podatke o putniku i povezanom letu. | **Kompozicija, enkapsulacija** |
-| `BookingSystem` | Upravljanje rezervacijama: kreiranje, otkazivanje, pregled karata. | **Polimorfizam, upravljanje objektima** |
+All logic, classes, and file handling are implemented in a single source file for simplicity.
 
 ---
 
-## ⚙️ Funkcionalnosti
+## 🧠 Object-Oriented Concepts Used
 
-### 🧳 Korisničke mogućnosti:
-- Kreiranje **domaćih** ili **međunarodnih** letova  
-- **Rezervacija leta** uz unos podataka o putniku (ime, prezime, OIB/ID, e-mail, kontakt, način plaćanja, klasa sjedala)
-- **Validacija e-mail adrese** pomoću `std::regex`
-- **Pregled svih rezerviranih letova**
-- **Provjera karte po ID-u**
-- **Otkazivanje rezervacije**
-- **Automatsko smanjenje broja slobodnih mjesta nakon rezervacije**
+| Concept | Where It’s Used | Description |
+|----------|----------------|--------------|
+| **Encapsulation** | Private attributes in classes like `Flight`, `Passenger`, and `Reservation` are accessed through public methods. | Protects data and ensures control over how attributes are read or modified. |
+| **Inheritance** | `Ticket` class serves as a base, with subclasses such as `EconomyTicket` or `BusinessTicket`. | Demonstrates code reuse and specialization of behavior. |
+| **Polymorphism** | Virtual methods (e.g., `calculatePrice()`) overridden in derived ticket classes. | Allows the same function call to behave differently depending on object type. |
+| **Abstraction** | Abstract base class (`Ticket`) defines pure virtual methods for child classes. | Hides complex details and provides a unified interface for ticket handling. |
+| **File Handling** | Used to store flight and reservation data persistently in text or binary files. | Demonstrates use of `fstream` for reading and writing data between sessions. |
+| **Composition** | The `Reservation` class contains both a `Flight` and a `Passenger` object. | Represents the real-world relationship between flights and passengers. |
 
 ---
 
-## 🧠 OOP Koncepti u projektu
+## 🗂️ Project Structure
+```
+oop-c-airline-reservation-system/
+├── main.cpp      # Full implementation of the system
+└── README.md     # Project documentation
+```
 
-### 🔒 Enkapsulacija
-Podaci o letu i putniku su **privatni** i njima se pristupa putem javnih metoda (get/set).
+---
 
-```cpp
-void setFlightDetails(const std::string& depCity, const std::string& arrCity, ...);
-int getAvailableSeats() const;
+## 🛠️ How to Compile & Run
+
+1️⃣ **Clone the repository**
+```bash
+git clone https://github.com/leonserka/oop-c-airline-reservation-system-.git
+cd oop-c-airline-reservation-system-
+```
+
+2️⃣ **Compile the project**
+```bash
+g++ main.cpp -o airline_system
+```
+
+3️⃣ **Run the executable**
+```bash
+./airline_system
+```
+
+---
+
+## 🧩 Technologies & Concepts
+- **Language:** C++ (C++11 or newer)  
+- **Paradigm:** Object-Oriented Programming (OOP)  
+- **File Handling:** Data persistence via `fstream`  
+- **Interface:** Console-based menu system  
+
+---
+
+## 🚧 Future Improvements
+- Separate classes into header (`.h`) and implementation (`.cpp`) files  
+- Add GUI using Qt or SFML  
+- Replace file storage with a database (e.g., SQLite/MySQL)  
+- Add authentication system (admin/user roles)
+
+---
+
+## 📄 License
+This project is open-source under the MIT License — feel free to use, modify, and learn from it.
+
+---
+
+## ✍️ Author
+**Leon Serka**  
+[https://github.com/leonserka](https://github.com/leonserka)
